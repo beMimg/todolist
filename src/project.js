@@ -1,23 +1,19 @@
-const projectContainer = document.querySelector("[data-projects]");
+const projectForm = document.querySelector("[data-new-project-form");
 
-export const projects = [
-  {
-    id: 1,
-    name: "Sss",
-  },
-  {
-    id: 2,
-    name: "ll",
-  },
-];
+projectForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const projectInput = document.querySelector("[data-new-project-input]").value;
+  if (projectInput == null || projectInput === " ") return;
+  const project = createProject(projectInput);
+  projects.push(project);
+  display();
+  projectForm.reset();
+});
 
-export function display() {
-  projects.forEach((project) => {
-    const projectElement = document.createElement("li");
-    projectElement.dataset.projectId = project.id;
-    projectElement.classList.add("defaultProject");
-    projectElement.innerHTML = project.name;
-
-    projectContainer.appendChild(projectElement);
-  });
+function createProject(name) {
+  return {
+    id: Date.now().toString(),
+    name: name,
+    tasks: [],
+  };
 }
