@@ -52,10 +52,9 @@ main {
 .sidebar {
   background-color: rgba(0, 0, 0, 0.6);
   position: fixed;
+  overflow: hidden;
   height: 100%;
   width: 190px;
-  display: flex;
-  flex-direction: column;
 }
 
 .sidebar .options {
@@ -95,5 +94,6 @@ main {
   color: white;
   font-weight: 400;
   padding: 10px;
+  text-align: center;
   cursor: pointer;
 }

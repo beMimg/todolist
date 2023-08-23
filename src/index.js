@@ -1,2 +1,4 @@
 import "./homepage.css";
-console.log("ss");
+import { loadPage } from "./loadPage";
+
+loadPage();
