@@ -9,17 +9,30 @@
   <body>
     <div class="sidebar" id="sidebar">
       <ul class="options">
-        <li id="inbox"><img src="../src/img/inbox.svg" />Inbox</li>
-        <li id="today"><img src="../src/img/calendar-today.png" />Today</li>
-        <li id="thisWeek">
+        <li id="inboxOption"><img src="../src/img/inbox.svg" />Inbox</li>
+        <li id="todayOption">
+          <img src="../src/img/calendar-today.png" />Today
+        </li>
+        <li id="thisWeekOption">
           <img src="../src/img/calendar-arrow-right.svg" />This week
         </li>
-        <li id="addProject">
+        <li id="projectOption">
           <img src="../src/img/plus-box-outline.svg" />Project
         </li>
       </ul>
+      <div class="project-form-container" id="projectFormContainer">
+        <form action="" class="project-form">
+          <input
+            type="text"
+            name="projectName"
+            class="projectName"
+            id="projectName"
+          />
+          <button type="submit">+</button>
+        </form>
+      </div>
 
-      <ul class="projects">
+      <ul class="projects" data-projects>
         <li id="defaultProject">Default Project</li>
       </ul>
     </div>

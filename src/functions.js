@@ -10,3 +10,16 @@ export function handleHeadlineBtn() {
     main.style.marginLeft = "0px";
   }
 }
+
+export function handleProjectBtn() {
+  const projectFormContainer = document.getElementById("projectFormContainer");
+  if (projectFormContainer.style.visibility === "visible") {
+    projectFormContainer.style.visibility = "hidden";
+    projectFormContainer.style.opacity = "0";
+    projectFormContainer.style.height = "0px";
+  } else {
+    projectFormContainer.style.visibility = "visible";
+    projectFormContainer.style.opacity = "1";
+    projectFormContainer.style.height = "100px";
+  }
+}
