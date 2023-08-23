@@ -1,9 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Output Management</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><script defer src="main.js"></script></head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>todo</title>
+    <script src="main.js" defer></script>
+  </head>
   <body>
+    <div class="sidebar">
+      <ul class="options">
+        <li id="inbox"><img src="../src/img/inbox.svg" />Inbox</li>
+        <li id="today"><img src="../src/img/calendar-today.png" />Today</li>
+        <li id="thisWeek">
+          <img src="../src/img/calendar-arrow-right.svg" />This week
+        </li>
+        <li id="addProject">
+          <img src="../src/img/plus-box-outline.svg" />Project
+        </li>
+      </ul>
+
+      <ul class="projects">
+        <li id="defaultProject">Default Project</li>
+      </ul>
+    </div>
+
+    <main>
+      <div class="header">
+        <div class="handle-sidebar" id="handleSidebar">
+          <img src="../src/img/view-headline.svg" />
+        </div>
+        <p class="header-title" id="headerTitle">Todolist</p>
+      </div>
+    </main>
   </body>
 </html>
