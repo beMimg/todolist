@@ -2,6 +2,9 @@ const projectContainer = document.querySelector("[data-projects]");
 const projectForm = document.querySelector("[data-new-project-form");
 const projectInput = document.querySelector("[data-new-project-input]");
 const deleteProject = document.querySelector("[data-delete-project");
+const tasksContainer = document.querySelector("[data-tasks-container]");
+const taskProjectTitle = document.querySelector("[data-task-project-title]");
+const tasksRemaining = document.querySelector("[data-tasks-remaining]");
 
 const LOCAL_STORAGE_PROJECT_KEY = "task.projects";
 const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = "task.selectedProjectId";
@@ -44,6 +47,28 @@ function createProject(name) {
 
 export function display() {
   clearElement(projectContainer);
+  displayProjects();
+  const selectedProject = projects.find(
+    (project) => project.id === selectedProjectId
+  );
+  if (selectedProjectId == null) {
+    tasksContainer.style.display = "none";
+  } else {
+    tasksContainer.style.display = "";
+  }
+  taskProjectTitle.innerHTML = selectedProject.name;
+  projectRemainingTasks(selectedProject);
+}
+
+function projectRemainingTasks(selectedProject) {
+  const incompleteTasksCount = selectedProject.tasks.filter(
+    (task) => !task.complete
+  ).length;
+  const taskString = incompleteTasksCount === 1 ? "task" : "tasks";
+  tasksRemaining.innerHTML = `${incompleteTasksCount} ${taskString} remaining.`;
+}
+
+function displayProjects() {
   projects.forEach((project) => {
     const projectElement = document.createElement("li");
     projectElement.dataset.projectId = project.id;
