@@ -43,26 +43,59 @@
         </div>
         <p class="header-title" id="headerTitle">Todolist</p>
       </div>
+
       <div class="main-content" id="mainContent">
-        <div class="taskContainer">
+        <div class="task-container">
           <div class="task-header">
             <p class="project-title">Gym</p>
-            <p class="task-remaining">4 tasks remaining</p>
+            <p class="tasks-remaining">4 tasks remaining</p>
           </div>
-          <div class="task-main">
-            <div class="task">
+
+          <div class="tasks">
+            <div class="tasks-card">
               <input type="checkbox" id="task-1" />
               <label for="task-1">
-                <div class="custom-checkbox"></div>
-                record this list
+                <span class="custom-checkbox"></span>
+                Make food
               </label>
+              <p class="priority">High Priority</p>
+              <p class="dueDate">25-08-2023</p>
             </div>
+            <div class="plus-btn"><img src="../src/img/plus-circle.svg" /></div>
           </div>
         </div>
+
         <p class="delete-project" id="deleteProject" data-delete-project>
           Delete current project
         </p>
       </div>
     </main>
+    <div class="task-form-container">
+      <form action="" class="task-form" data-add-form>
+        <div>
+          <label for="taskName">Name:</label>
+          <input
+            type="text"
+            name="taskName"
+            id="taskName"
+            required
+            placeholder="Name your task"
+          />
+        </div>
+        <div>
+          <label for="priority">Priority:</label>
+          <select name="priority" id="priority">
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+        <div>
+          <label for="dueDate">Due Date:</label>
+          <input type="date" name="dueDate" id="dueDate" required />
+        </div>
+        <button type="submit">Add</button>
+      </form>
+    </div>
   </body>
 </html>

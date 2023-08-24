@@ -50,11 +50,6 @@ main {
   height: 60px;
 }
 
-.delete-project {
-  color: black;
-  cursor: pointer;
-  width: 200px;
-}
 /* Header OFF*/
 /* Sidebar ON */
 .sidebar {

@@ -23,3 +23,19 @@ export function handleProjectBtn() {
     projectFormContainer.style.height = "100px";
   }
 }
+
+export function openTaskForm() {
+  const taskFormContainer = document.querySelector(".task-form-container");
+  taskFormContainer.style.visibility = "visible";
+  taskFormContainer.style.opacity = "1";
+  const taskForm = document.querySelector("[data-add-form]");
+  taskForm.addEventListener("click", function (event) {
+    event.stopPropagation();
+  });
+}
+
+export function closeTaskForm() {
+  const taskFormContainer = document.querySelector(".task-form-container");
+  taskFormContainer.style.visibility = "hidden";
+  taskFormContainer.style.opacity = "0";
+}
