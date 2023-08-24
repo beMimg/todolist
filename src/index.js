@@ -1,6 +1,7 @@
-import "./homepage.css";
-import "./mainContent.css";
-import "./addForm.css";
-import { loadPage } from "./loadPage";
+import "./styles/homepage.css";
+import "./styles/mainContent.css";
+import "./styles/addForm.css";
+
+import { loadPage } from "./modules/loadPage";
 
 loadPage();

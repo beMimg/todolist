@@ -1,10 +1,10 @@
 @font-face {
   font-family: "FontTitle";
-  src: url(../src/font/super_donuts/Super\ Donuts\ Personal\ Use.ttf);
+  src: url(../font/super_donuts/Super\ Donuts\ Personal\ Use.ttf);
 }
 
 body {
-  background-image: url(../src/img/background.jpg);
+  background-image: url(../img/background.jpg);
   background-size: cover;
   background-position: center;
   margin: 0px;
