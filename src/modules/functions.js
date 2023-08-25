@@ -45,8 +45,8 @@ export function setMinAndValueToDueDate() {
     .split("T")[0];
 }
 
-export function formatDate() {
-  var date = new Date(a);
+export function formatDate(variable) {
+  var date = new Date(variable);
 
   var year = date.toLocaleString("default", { year: "numeric" });
   var month = date.toLocaleString("default", { month: "2-digit" });

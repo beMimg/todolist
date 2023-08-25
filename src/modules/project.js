@@ -1,4 +1,4 @@
-import { closeTaskForm, handleHeadlineBtn } from "./functions";
+import { closeTaskForm, formatDate, handleHeadlineBtn } from "./functions";
 
 const projectContainer = document.querySelector("[data-projects-container]");
 const projectForm = document.querySelector("[data-new-project-form");
@@ -79,7 +79,8 @@ taskForm.addEventListener("submit", function (event) {
   const capitalizedTaskName =
     taskName.charAt(0).toUpperCase() + taskName.slice(1);
   const taskPriority = taskFormPriority.value;
-  const taskDueDate = taskFormDueDateInput.value;
+  const taskUnDueDate = taskFormDueDateInput.value;
+  const taskDueDate = formatDate(taskUnDueDate);
   const task = createTask(capitalizedTaskName, taskPriority, taskDueDate);
   const selectedProject = projects.find(
     (project) => project.id === selectedProjectId
