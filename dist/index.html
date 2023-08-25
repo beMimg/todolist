@@ -7,6 +7,7 @@
     <script src="main.js" defer></script>
   </head>
   <body>
+    <!-- Sidebar ON -->
     <div class="sidebar" id="sidebar">
       <ul class="options">
         <li id="inboxOption"><img src="../src/img/inbox.svg" />Inbox</li>
@@ -36,16 +37,19 @@
 
       <ul class="projects" data-projects></ul>
     </div>
-
+    <!-- Sidebar END -->
+    <!-- MAIN ON -->
     <main>
+      <!-- HeaderON -->
       <div class="header">
         <div class="handle-sidebar" id="handleSidebar">
           <img src="../src/img/view-headline.svg" />
         </div>
         <p class="header-title" id="headerTitle">Todolist</p>
       </div>
-
+      <!-- Header END -->
       <div class="main-content" id="mainContent">
+        <!-- Delete Options ON -->
         <div class="delete-options">
           <p class="delete-project" id="deleteProject" data-delete-project>
             Delete current project
@@ -53,29 +57,25 @@
           <p class="delete-selected-task" data-delete-task>
             Delete completed task
           </p>
+          <div class="plus-btn"><img src="../src/img/plus-circle.svg" /></div>
         </div>
+        <!-- Delete Options END -->
+        <!-- Task Container ON -->
         <div class="tasks-container" data-tasks-container>
           <div class="task-header">
-            <p class="task-project-title" data-task-project-title>Gym</p>
-            <p class="tasks-remaining" data-tasks-remaining>
-              4 tasks remaining
-            </p>
+            <p class="task-project-title" data-task-project-title></p>
+            <p class="tasks-remaining" data-tasks-remaining></p>
           </div>
 
-          <div class="tasks" data-all-tasks>
-            <div class="tasks-card">
-              <input type="checkbox" id="task-1" />
-              <label for="task-1">
-                <span class="custom-checkbox"></span>
-                Make food
-              </label>
-              <p class="priority">High Priority</p>
-              <p class="dueDate">25-08-2023</p>
-            </div>
-          </div>
+          <div class="tasks" data-all-tasks></div>
         </div>
+        <!-- Task Container END -->
       </div>
     </main>
+    <!-- MAIN END -->
+
+    <!-- Task Form ON -->
+    <!-- This form is set to hidden -->
     <div class="task-form-container">
       <form action="" class="task-form" data-task-form>
         <div>
@@ -110,7 +110,7 @@
         <button type="submit">Add</button>
       </form>
     </div>
-    <div class="plus-btn"><img src="../src/img/plus-circle.svg" /></div>
+    <!-- Task Form END -->
     <template id="task-template">
       <div class="tasks-card">
         <input type="checkbox" />
