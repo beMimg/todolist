@@ -65,8 +65,9 @@ allTasks.addEventListener("click", (e) => {
 projectForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const projectName = projectInput.value;
-  if (projectName == null || projectName === " ") return;
-  const project = createProject(projectName);
+  const capitalizedProjectName =
+    projectName.charAt(0).toUpperCase() + projectName.slice(1);
+  const project = createProject(capitalizedProjectName);
   projects.push(project);
   saveAndDisplay();
   projectForm.reset();
@@ -75,10 +76,11 @@ projectForm.addEventListener("submit", function (event) {
 taskForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const taskName = taskFormNameInput.value;
-  if (projectName == null || projectName === " ") return;
+  const capitalizedTaskName =
+    taskName.charAt(0).toUpperCase() + taskName.slice(1);
   const taskPriority = taskFormPriority.value;
   const taskDueDate = taskFormDueDateInput.value;
-  const task = createTask(taskName, taskPriority, taskDueDate);
+  const task = createTask(capitalizedTaskName, taskPriority, taskDueDate);
   const selectedProject = projects.find(
     (project) => project.id === selectedProjectId
   );
