@@ -35,3 +35,22 @@ export function closeTaskForm() {
   taskFormContainer.style.visibility = "hidden";
   taskFormContainer.style.opacity = "0";
 }
+
+export function setMinAndValueToDueDate() {
+  document.getElementById("dueDate").min = new Date()
+    .toISOString()
+    .split("T")[0];
+  document.getElementById("dueDate").value = new Date()
+    .toISOString()
+    .split("T")[0];
+}
+
+export function formatDate() {
+  var date = new Date(a);
+
+  var year = date.toLocaleString("default", { year: "numeric" });
+  var month = date.toLocaleString("default", { month: "2-digit" });
+  var day = date.toLocaleString("default", { day: "2-digit" });
+
+  return day + "-" + month + "-" + year;
+}
