@@ -1,6 +1,6 @@
 import { closeTaskForm, handleHeadlineBtn } from "./functions";
 
-const projectContainer = document.querySelector("[data-projects]");
+const projectContainer = document.querySelector("[data-projects-container]");
 const projectForm = document.querySelector("[data-new-project-form");
 const projectInput = document.querySelector("[data-new-project-input]");
 const deleteProject = document.querySelector("[data-delete-project");
