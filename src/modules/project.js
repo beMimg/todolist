@@ -15,6 +15,7 @@ const taskFormPriority = document.querySelector("[data-task-form-priority]");
 const taskFormDueDateInput = document.querySelector(
   "[data-task-form-duedate-input]"
 );
+const deleteTask = document.querySelector("[data-delete-task]");
 
 const LOCAL_STORAGE_PROJECT_KEY = "task.projects";
 const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = "task.selectedProjectId";
@@ -35,6 +36,16 @@ projectContainer.addEventListener("click", (e) => {
     selectedProjectId = e.target.dataset.projectId;
     saveAndDisplay();
   }
+});
+
+deleteTask.addEventListener("click", () => {
+  const selectedProject = projects.find(
+    (project) => project.id === selectedProjectId
+  );
+  selectedProject.tasks = selectedProject.tasks.filter(
+    (task) => !task.complete
+  );
+  saveAndDisplay();
 });
 
 allTasks.addEventListener("click", (e) => {

@@ -28,6 +28,7 @@
             data-new-project-input
             class="projectName"
             id="projectName"
+            required
           />
           <button type="submit">+</button>
         </form>
@@ -65,10 +66,14 @@
             </div>
           </div>
         </div>
-
-        <p class="delete-project" id="deleteProject" data-delete-project>
-          Delete current project
-        </p>
+        <div class="delete-options">
+          <p class="delete-project" id="deleteProject" data-delete-project>
+            Delete current project
+          </p>
+          <p class="delete-selected-task" data-delete-task>
+            Delete completed task
+          </p>
+        </div>
       </div>
     </main>
     <div class="task-form-container">
