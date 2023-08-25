@@ -37,6 +37,20 @@ projectContainer.addEventListener("click", (e) => {
   }
 });
 
+allTasks.addEventListener("click", (e) => {
+  if (e.target.tagName.toLowerCase() === "input") {
+    const selectedProject = projects.find(
+      (project) => project.id === selectedProjectId
+    );
+    const selectedTask = selectedProject.tasks.find(
+      (task) => task.id === e.target.id
+    );
+    selectedTask.complete = e.target.checked;
+    save();
+    projectRemainingTasks(selectedProject);
+  }
+});
+
 projectForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const projectName = projectInput.value;
