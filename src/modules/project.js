@@ -1,3 +1,5 @@
+import { closeTaskForm, handleHeadlineBtn } from "./functions";
+
 const projectContainer = document.querySelector("[data-projects]");
 const projectForm = document.querySelector("[data-new-project-form");
 const projectInput = document.querySelector("[data-new-project-input]");
@@ -7,6 +9,12 @@ const taskProjectTitle = document.querySelector("[data-task-project-title]");
 const tasksRemaining = document.querySelector("[data-tasks-remaining]");
 const allTasks = document.querySelector("[data-all-tasks]");
 const taskTemplate = document.querySelector("#task-template");
+const taskForm = document.querySelector("[data-task-form]");
+const taskFormNameInput = document.querySelector("[data-task-form-name-input]");
+const taskFormPriority = document.querySelector("[data-task-form-priority]");
+const taskFormDueDateInput = document.querySelector(
+  "[data-task-form-duedate-input]"
+);
 
 const LOCAL_STORAGE_PROJECT_KEY = "task.projects";
 const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = "task.selectedProjectId";
@@ -38,6 +46,33 @@ projectForm.addEventListener("submit", function (event) {
   saveAndDisplay();
   projectForm.reset();
 });
+
+taskForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const taskName = taskFormNameInput.value;
+  if (projectName == null || projectName === " ") return;
+  const taskPriority = taskFormPriority.value;
+  const taskDueDate = taskFormDueDateInput.value;
+  const task = createTask(taskName, taskPriority, taskDueDate);
+  const selectedProject = projects.find(
+    (project) => project.id === selectedProjectId
+  );
+  selectedProject.tasks.push(task);
+  saveAndDisplay();
+  taskForm.reset();
+  closeTaskForm();
+  handleHeadlineBtn();
+});
+
+function createTask(name, priority, dueDate) {
+  return {
+    id: Date.now().toString(),
+    name: name,
+    priority: priority,
+    dueDate: dueDate,
+    complete: false,
+  };
+}
 
 function createProject(name) {
   return {

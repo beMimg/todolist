@@ -27,4 +27,9 @@ export function handleBtns() {
     closeTaskForm();
     handleHeadlineBtn();
   });
+
+  const taskForm = document.querySelector("[data-task-form]");
+  taskForm.addEventListener("click", function (event) {
+    event.stopPropagation();
+  });
 }

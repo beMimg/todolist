@@ -72,20 +72,21 @@
       </div>
     </main>
     <div class="task-form-container">
-      <form action="" class="task-form" data-add-form>
+      <form action="" class="task-form" data-task-form>
         <div>
           <label for="taskName">Name:</label>
           <input
             type="text"
             name="taskName"
             id="taskName"
+            data-task-form-name-input
             required
             placeholder="Name your task"
           />
         </div>
         <div>
           <label for="priority">Priority:</label>
-          <select name="priority" id="priority">
+          <select name="priority" id="priority" data-task-form-priority>
             <option value="Small">Small</option>
             <option value="Medium">Medium</option>
             <option value="High">High</option>
@@ -93,7 +94,13 @@
         </div>
         <div>
           <label for="dueDate">Due Date:</label>
-          <input type="date" name="dueDate" id="dueDate" required />
+          <input
+            type="date"
+            name="dueDate"
+            id="dueDate"
+            data-task-form-duedate-input
+            required
+          />
         </div>
         <button type="submit">Add</button>
       </form>
