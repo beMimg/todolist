@@ -53,7 +53,7 @@
             </p>
           </div>
 
-          <div class="tasks">
+          <div class="tasks" data-all-tasks>
             <div class="tasks-card">
               <input type="checkbox" id="task-1" />
               <label for="task-1">
@@ -63,7 +63,6 @@
               <p class="priority">High Priority</p>
               <p class="dueDate">25-08-2023</p>
             </div>
-            <div class="plus-btn"><img src="../src/img/plus-circle.svg" /></div>
           </div>
         </div>
 
@@ -99,5 +98,16 @@
         <button type="submit">Add</button>
       </form>
     </div>
+    <div class="plus-btn"><img src="../src/img/plus-circle.svg" /></div>
+    <template id="task-template">
+      <div class="tasks-card">
+        <input type="checkbox" />
+        <label>
+          <span class="custom-checkbox"></span>
+        </label>
+        <p class="priority"></p>
+        <p class="dueDate"></p>
+      </div>
+    </template>
   </body>
 </html>

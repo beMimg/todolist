@@ -5,6 +5,8 @@ const deleteProject = document.querySelector("[data-delete-project");
 const tasksContainer = document.querySelector("[data-tasks-container]");
 const taskProjectTitle = document.querySelector("[data-task-project-title]");
 const tasksRemaining = document.querySelector("[data-tasks-remaining]");
+const allTasks = document.querySelector("[data-all-tasks]");
+const taskTemplate = document.querySelector("#task-template");
 
 const LOCAL_STORAGE_PROJECT_KEY = "task.projects";
 const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = "task.selectedProjectId";
@@ -58,6 +60,25 @@ export function display() {
   }
   taskProjectTitle.innerHTML = selectedProject.name;
   projectRemainingTasks(selectedProject);
+  clearElement(allTasks);
+  displayTasks(selectedProject);
+}
+
+function displayTasks(selectedProject) {
+  selectedProject.tasks.forEach((task) => {
+    const taskElement = document.importNode(taskTemplate.content, true);
+    const checkbox = taskElement.querySelector("input");
+    checkbox.id = task.id;
+    checkbox.checked = task.complete;
+    const label = taskElement.querySelector("label");
+    label.htmlFor = task.id;
+    label.append(task.name);
+    const priority = taskElement.querySelector(".priority");
+    priority.append(task.priority);
+    const dueDate = taskElement.querySelector(".dueDate");
+    dueDate.append(task.dueDate);
+    allTasks.appendChild(taskElement);
+  });
 }
 
 function projectRemainingTasks(selectedProject) {
@@ -65,7 +86,8 @@ function projectRemainingTasks(selectedProject) {
     (task) => !task.complete
   ).length;
   const taskString = incompleteTasksCount === 1 ? "task" : "tasks";
-  tasksRemaining.innerHTML = `${incompleteTasksCount} ${taskString} remaining.`;
+  tasksRemaining.innerHTML = `${incompleteTasksCount} ${taskString} remaining
+  `;
 }
 
 function displayProjects() {
