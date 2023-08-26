@@ -177,6 +177,7 @@ function changeTaskProperties(task) {
     saveAndDisplay();
     closeEditForm();
     editTaskForm.removeEventListener("submit", handleEditFormSubmit);
+    editTaskForm.reset();
   });
 }
 function projectRemainingTasks(selectedProject) {
