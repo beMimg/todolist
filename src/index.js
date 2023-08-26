@@ -6,7 +6,4 @@ import { loadPage } from "./modules/loadPage";
 
 loadPage();
 
-document.getElementById("dueDate").min = new Date().toISOString().split("T")[0];
-document.getElementById("dueDate").value = new Date()
-  .toISOString()
-  .split("T")[0];
+console.log("ss");

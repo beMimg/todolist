@@ -1,4 +1,9 @@
-import { closeTaskForm, formatDate, handleHeadlineBtn } from "./functions";
+import {
+  closeTaskForm,
+  formatDate,
+  handleHeadlineBtn,
+  openEditForm,
+} from "./functions";
 
 const projectContainer = document.querySelector("[data-projects-container]");
 const projectForm = document.querySelector("[data-new-project-form");
@@ -140,6 +145,10 @@ function displayTasks(selectedProject) {
     priority.append(task.priority);
     const dueDate = taskElement.querySelector(".dueDate");
     dueDate.append(task.dueDate);
+    const edit = taskElement.querySelector(".edit");
+    edit.addEventListener("click", function () {
+      openEditForm();
+    });
     allTasks.appendChild(taskElement);
   });
 }
@@ -167,12 +176,6 @@ function displayProjects() {
   });
 }
 
-function clearElement(element) {
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
-  }
-}
-
 function save() {
   localStorage.setItem(LOCAL_STORAGE_PROJECT_KEY, JSON.stringify(projects));
   localStorage.setItem(
@@ -181,7 +184,13 @@ function save() {
   );
 }
 
-function saveAndDisplay() {
+function clearElement(element) {
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+}
+
+export function saveAndDisplay() {
   save();
   display();
 }

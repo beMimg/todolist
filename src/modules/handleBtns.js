@@ -1,4 +1,5 @@
 import {
+  closeEditForm,
   closeTaskForm,
   handleHeadlineBtn,
   handleProjectBtn,
@@ -30,6 +31,18 @@ export function handleBtns() {
 
   const taskForm = document.querySelector("[data-task-form]");
   taskForm.addEventListener("click", function (event) {
+    event.stopPropagation();
+  });
+
+  const editTaskFormContainer = document.querySelector(
+    ".edit-task-form-container"
+  );
+  editTaskFormContainer.addEventListener("click", function () {
+    closeEditForm();
+  });
+
+  const editTaskForm = document.querySelector("[data-edit-task-form]");
+  editTaskForm.addEventListener("click", function (event) {
     event.stopPropagation();
   });
 }

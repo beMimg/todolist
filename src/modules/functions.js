@@ -54,3 +54,15 @@ export function formatDate(variable) {
 
   return day + "-" + month + "-" + year;
 }
+
+export function openEditForm() {
+  const taskFormContainer = document.querySelector(".edit-task-form-container");
+  taskFormContainer.style.visibility = "visible";
+  taskFormContainer.style.opacity = "1";
+}
+
+export function closeEditForm() {
+  const taskFormContainer = document.querySelector(".edit-task-form-container");
+  taskFormContainer.style.visibility = "hidden";
+  taskFormContainer.style.opacity = "0";
+}

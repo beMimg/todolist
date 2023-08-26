@@ -11,12 +11,6 @@
     <div class="sidebar" id="sidebar">
       <ul class="options">
         <li id="inboxOption"><img src="../src/img/inbox.svg" />Inbox</li>
-        <li id="todayOption">
-          <img src="../src/img/calendar-today.png" />Today
-        </li>
-        <li id="thisWeekOption">
-          <img src="../src/img/calendar-arrow-right.svg" />This week
-        </li>
         <li id="projectOption">
           <img src="../src/img/plus-box-outline.svg" />Project
         </li>
@@ -111,6 +105,42 @@
         <button type="submit">Add</button>
       </form>
     </div>
+    <!-- Edit task form ON -->
+    <div class="edit-task-form-container">
+      <form action="" class="task-form" data-edit-task-form>
+        <div>
+          <label for="taskName">Name:</label>
+          <input
+            type="text"
+            name="taskName"
+            id="taskName"
+            data-task-form-name-input
+            required
+            placeholder="Name your task"
+          />
+        </div>
+        <div>
+          <label for="priority">Priority:</label>
+          <select name="priority" id="priority" data-edit-task-form-priority>
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+        <div>
+          <label for="dueDate">Due Date:</label>
+          <input
+            type="date"
+            name="dueDate"
+            id="dueDate"
+            data-edit-task-form-duedate-input
+            required
+          />
+        </div>
+        <button type="submit">Add</button>
+      </form>
+    </div>
+    <!-- Edit task OFF -->
     <!-- Task Form END -->
     <template id="task-template">
       <div class="tasks-card">
@@ -120,6 +150,9 @@
         </label>
         <p class="priority"></p>
         <p class="dueDate"></p>
+        <div class="edit">
+          <img src="../src/img/pencil-circle-outline.svg" />
+        </div>
       </div>
     </template>
   </body>
