@@ -10,7 +10,6 @@ const projectContainer = document.querySelector("[data-projects-container]");
 const projectForm = document.querySelector("[data-new-project-form");
 const projectInput = document.querySelector("[data-new-project-input]");
 const deleteProject = document.querySelector("[data-delete-project");
-const tasksContainer = document.querySelector("[data-tasks-container]");
 const taskProjectTitle = document.querySelector("[data-task-project-title]");
 const tasksRemaining = document.querySelector("[data-tasks-remaining]");
 const allTasks = document.querySelector("[data-all-tasks]");
@@ -32,6 +31,7 @@ const editTaskFormPriorityInput = document.querySelector(
 const editTaskFormDueDateInput = document.querySelector(
   "[data-edit-task-form-duedate-input]"
 );
+const mainContent = document.querySelector("[data-main-content]");
 
 const LOCAL_STORAGE_PROJECT_KEY = "task.projects";
 const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = "task.selectedProjectId";
@@ -133,9 +133,11 @@ export function display() {
     (project) => project.id === selectedProjectId
   );
   if (selectedProjectId == null) {
-    tasksContainer.style.display = "none";
+    mainContent.style.display = "none";
+    deleteProject.textContent = "Create a project first";
   } else {
-    tasksContainer.style.display = "";
+    mainContent.style.display = "";
+    deleteProject.textContent = "Delete current project";
   }
   taskProjectTitle.innerHTML = selectedProject.name;
   projectRemainingTasks(selectedProject);

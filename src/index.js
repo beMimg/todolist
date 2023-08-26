@@ -5,5 +5,3 @@ import "./styles/addForm.css";
 import { loadPage } from "./modules/loadPage";
 
 loadPage();
-
-console.log("ss");

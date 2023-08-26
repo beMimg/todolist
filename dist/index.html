@@ -10,7 +10,7 @@
     <!-- Sidebar ON -->
     <div class="sidebar" id="sidebar">
       <ul class="options">
-        <li id="inboxOption"><img src="../src/img/inbox.svg" />Inbox</li>
+        <li id="project-info" data-project-info></li>
         <li id="projectOption">
           <img src="../src/img/plus-box-outline.svg" />Project
         </li>
@@ -40,15 +40,17 @@
         <div class="handle-sidebar" id="handleSidebar">
           <img src="../src/img/view-headline.svg" />
         </div>
-        <p class="header-title" id="headerTitle">Todolist</p>
+        <div class="header-right-side">
+          <p class="header-title" id="headerTitle" data-header-title>
+            Todolist
+          </p>
+        </div>
       </div>
       <!-- Header END -->
-      <div class="main-content" id="mainContent">
+      <div class="main-content" id="mainContent" data-main-content>
         <!-- Delete Options ON -->
         <div class="delete-options">
-          <p class="delete-project" id="deleteProject" data-delete-project>
-            Delete current project
-          </p>
+          <p class="delete-project" id="deleteProject" data-delete-project></p>
           <p class="delete-selected-task" data-delete-task>
             Delete completed task
           </p>
@@ -137,7 +139,7 @@
             required
           />
         </div>
-        <button type="submit">Add</button>
+        <button type="submit">Change</button>
       </form>
     </div>
     <!-- Edit task OFF -->
