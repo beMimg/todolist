@@ -1,4 +1,5 @@
 import {
+  closeEditForm,
   closeTaskForm,
   formatDate,
   handleHeadlineBtn,
@@ -21,6 +22,16 @@ const taskFormDueDateInput = document.querySelector(
   "[data-task-form-duedate-input]"
 );
 const deleteTask = document.querySelector("[data-delete-task]");
+const editTaskForm = document.querySelector("[data-edit-task-form]");
+const editTaskFormNameInput = document.querySelector(
+  "[data-edit-task-form-name-input]"
+);
+const editTaskFormPriorityInput = document.querySelector(
+  "[data-edit-task-form-priority]"
+);
+const editTaskFormDueDateInput = document.querySelector(
+  "[data-edit-task-form-duedate-input]"
+);
 
 const LOCAL_STORAGE_PROJECT_KEY = "task.projects";
 const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = "task.selectedProjectId";
@@ -148,11 +159,26 @@ function displayTasks(selectedProject) {
     const edit = taskElement.querySelector(".edit");
     edit.addEventListener("click", function () {
       openEditForm();
+      changeTaskProperties(task);
     });
     allTasks.appendChild(taskElement);
   });
 }
 
+function changeTaskProperties(task) {
+  editTaskFormNameInput.value = task.name;
+  editTaskFormPriorityInput.value = task.priority;
+  editTaskFormDueDateInput.value = task.dueDate;
+  editTaskForm.addEventListener("submit", function handleEditFormSubmit(event) {
+    event.preventDefault();
+    task.name = editTaskFormNameInput.value;
+    task.priority = editTaskFormPriorityInput.value;
+    task.dueDate = editTaskFormDueDateInput.value;
+    saveAndDisplay();
+    closeEditForm();
+    editTaskForm.removeEventListener("submit", handleEditFormSubmit);
+  });
+}
 function projectRemainingTasks(selectedProject) {
   const incompleteTasksCount = selectedProject.tasks.filter(
     (task) => !task.complete
