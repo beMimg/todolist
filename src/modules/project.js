@@ -166,14 +166,14 @@ function displayTasks(selectedProject) {
 }
 
 function changeTaskProperties(task) {
-  editTaskFormNameInput.value = task.name;
-  editTaskFormPriorityInput.value = task.priority;
-  editTaskFormDueDateInput.value = task.dueDate;
   editTaskForm.addEventListener("submit", function handleEditFormSubmit(event) {
     event.preventDefault();
-    task.name = editTaskFormNameInput.value;
-    task.priority = editTaskFormPriorityInput.value;
-    task.dueDate = editTaskFormDueDateInput.value;
+    let editTaskFormName = editTaskFormNameInput.value;
+    let editTaskFormPriority = editTaskFormPriorityInput.value;
+    let editTaskFormDueDate = formatDate(editTaskFormDueDateInput.value);
+    task.name = editTaskFormName;
+    task.priority = editTaskFormPriority;
+    task.dueDate = editTaskFormDueDate;
     saveAndDisplay();
     closeEditForm();
     editTaskForm.removeEventListener("submit", handleEditFormSubmit);
