@@ -1,6 +1,5 @@
 # todolist
 
-TodoList App Readme
 This TodoList app is a simple web-based application that allows you to create and manage tasks organized by projects. You can create multiple projects, each with its own list of tasks. Tasks can have names, priorities, due dates, and completion status. This readme file will provide you with an overview of how to use the app and understand its code structure.
 
 ![Screenshot from 2023-09-05 23-31-25](https://github.com/beMimg/todolist/assets/126000960/cde8522d-5c1f-4542-ac55-fe3278e09848)
